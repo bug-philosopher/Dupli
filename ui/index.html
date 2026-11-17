@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dupli</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="console">
+
+  <header class="rail" data-tauri-drag-region>
+    <div class="brand" data-tauri-drag-region>
+      <svg class="wordmark" viewBox="0 0 183 84" role="img" aria-label="Dupli" data-tauri-drag-region>
+        <g fill="none" stroke="currentColor" stroke-width="11">
+          <circle cx="20" cy="42" r="14.5"/><path d="M34.5 0V62"/>
+          <path d="M55.5 22V42a14.5 14.5 0 0 0 29 0M84.5 22V62"/>
+          <path d="M105.5 22V84"/><circle cx="120" cy="42" r="14.5"/>
+          <path d="M155.5 0V62"/>
+          <path d="M176.5 22V62"/>
+        </g>
+        <circle cx="176.5" cy="6.5" r="6.5" fill="currentColor"/>
+      </svg>
+      <span class="legend model" data-tauri-drag-region>Folder duplicator</span>
+    </div>
+
+    <div class="rail-controls">
+      <div class="master">
+        <span class="lamp" id="auto-lamp"></span>
+        <div class="slide two" id="auto-switch" role="radiogroup" aria-label="Automatic syncing">
+          <div class="slide-legends">
+            <button role="radio" data-pos="0" class="legend">Paused</button>
+            <button role="radio" data-pos="1" class="legend">Auto</button>
+          </div>
+          <div class="slide-track"><span class="slide-knob"></span></div>
+        </div>
+      </div>
+      <button class="key key-small" id="setup-key" aria-pressed="false">Setup</button>
+      <div class="win-controls">
+        <button class="key key-tiny" id="win-min" aria-label="Minimize"><svg viewBox="0 0 10 10"><path d="M1.5 5h7"/></svg></button>
+        <button class="key key-tiny" id="win-close" aria-label="Close"><svg viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <aside class="bank">
+    <div class="legend bank-title">Pairs</div>
+    <div id="pairs" role="listbox" aria-label="Pairs"></div>
+    <button class="key key-wide" id="new-pair" aria-pressed="false"><span class="plus" aria-hidden="true"></span>New pair</button>
+  </aside>
+
+  <main class="deck">
+    <section class="path" id="path" aria-label="Folders">
+      <div class="plate" data-side="source">
+        <div class="plate-top">
+          <span class="lamp"></span><span class="tag tag-source">Source</span><span class="plate-vol legend"></span>
+        </div>
+        <button class="window" aria-label="Open the source folder">
+          <span class="lcd"><span class="plate-name"></span><span class="plate-path"></span></span>
+        </button>
+      </div>
+
+      <div class="link">
+        <div class="flow" aria-hidden="true">
+          <span class="wire"></span>
+          <span class="chevrons back"><i></i><i></i><i></i></span>
+          <span class="chevrons fwd"><i></i><i></i><i></i></span>
+        </div>
+        <div class="slide three" id="mode-switch" role="radiogroup" aria-label="How this pair syncs">
+          <div class="slide-legends">
+            <button role="radio" data-pos="0" class="legend" title="The copy is made identical to the source. Extras in the copy go to History.">Mirror</button>
+            <button role="radio" data-pos="1" class="legend" title="New and changed files are copied. Nothing is ever removed from the copy.">Add only</button>
+            <button role="radio" data-pos="2" class="legend" title="Changes on either side are carried to the other.">Two-way</button>
+          </div>
+          <div class="slide-track"><span class="slide-knob"></span></div>
+        </div>
+      </div>
+
+      <div class="plate" data-side="copy">
+        <div class="plate-top">
+          <span class="lamp"></span><span class="tag tag-copy">Copy</span><span class="plate-vol legend"></span>
+        </div>
+        <button class="window" aria-label="Open the copy folder">
+          <span class="lcd"><span class="plate-name"></span><span class="plate-path"></span></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="display window" aria-live="polite">
+      <div class="lcd">
+        <div class="head" id="head">
+          <div class="head-main">
+            <h1 class="headline" id="headline"></h1>
+            <p class="sub" id="sub"></p>
+          </div>
+          <div class="head-aside" id="aside"></div>
+          <div class="meter" id="meter" hidden><span></span></div>
+        </div>
+        <nav class="tabs" id="tabs" role="tablist"></nav>
+        <div class="body" id="body" tabindex="-1"></div>
+        <div class="notice" id="notice" hidden></div>
+      </div>
+    </section>
+
+    <footer class="controls">
+      <div class="auto-keys">
+        <span class="legend">Sync by itself</span>
+        <button class="key key-latch" id="key-connect" aria-pressed="false"><span class="led"></span>On connect</button>
+        <button class="key key-latch" id="key-change" aria-pressed="false"><span class="led"></span>On change</button>
+      </div>
+      <div class="main-keys">
+        <button class="key" id="key-compare">Compare</button>
+        <button class="key key-stop" id="key-stop" disabled><span class="stop-mark" aria-hidden="true"></span>Stop</button>
+        <button class="key key-sync" id="key-sync">Sync</button>
+      </div>
+    </footer>
+  </main>
+
+</div>
+<script src="sound.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

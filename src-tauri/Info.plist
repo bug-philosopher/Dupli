@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>NSRemovableVolumesUsageDescription</key>
+  <string>Dupli reads and writes the folders you pair on external drives, to keep them in sync.</string>
+  <key>NSNetworkVolumesUsageDescription</key>
+  <string>Dupli reads and writes the folders you pair on network drives, to keep them in sync.</string>
+  <key>NSDocumentsFolderUsageDescription</key>
+  <string>Dupli reads and writes the folders you pair, to keep them in sync.</string>
+  <key>NSDesktopFolderUsageDescription</key>
+  <string>Dupli reads and writes the folders you pair, to keep them in sync.</string>
+  <key>NSDownloadsFolderUsageDescription</key>
+  <string>Dupli reads and writes the folders you pair, to keep them in sync.</string>
+</dict>
+</plist>
